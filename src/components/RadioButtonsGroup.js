@@ -9,7 +9,7 @@ import FormLabel from '@mui/material/FormLabel';
 export default function RadioButtonsGroup({ data,setAnswer1, setAnswer2, setQuestion1, setQuestion2 }) {
 
 
-  const items = data.data;
+  const items = data?.data;
   const form1 = items?.[0];
   const form2 = items?.[1];
   setQuestion1(form1?.id);

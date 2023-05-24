@@ -41,7 +41,7 @@ export default function LogForm() {
     setErrorMsg(false);
 
     const data = await GetApi(API_URLS.LOGIN, API_URLS.HEADERPOST);
-    console.log(data);
+    // console.log(data);
     const message = data.message;
     setMsg(message);
     if (data.code == 200) {
