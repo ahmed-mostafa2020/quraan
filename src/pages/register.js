@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import image from '../../public/photo10.svg';
 import Link from 'next/link';
