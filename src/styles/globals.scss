@@ -106,6 +106,7 @@ button {
           input {
             cursor: pointer;
           }
+          
         }
       }
 
@@ -115,6 +116,23 @@ button {
         align-items: center;
         flex-direction: column;
         flex-wrap: wrap;
+        .right-msg, .wrong-msg{
+          display: block;
+          font-size: 15px;
+          font-weight: 400;
+          padding: 5px 8px;
+          .sign{
+            display: inline-block;
+          }
+        }
+        .right-msg{
+          background-color: green;
+          color: #fff;
+        }
+        .wrong-msg{
+          background-color: red;
+          color: #fff;
+        }
         .radio-group {
           direction: rtl;
           margin: 0px 0 30px 0;
@@ -124,6 +142,11 @@ button {
             font-weight: 600;
             color: black;
           }
+          label.right_answer{
+            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
+              color: green;
+            }
+          }
           .css-ahj2mt-MuiTypography-root {
             font-size: 19px;
           }
@@ -131,15 +154,16 @@ button {
             color: $main-color;
           }
           .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
-            color: $sec-color;
+            color: gray;
           }
+
         }
       }
       .btn {
         background-color: $main-color !important;
         color: #fff;
         font-weight: bold;
-        padding: 5px 20px;
+        padding: 5px 20px 10px 20px;
         font-size: 20px;
         letter-spacing: 0.5px;
         &:hover {

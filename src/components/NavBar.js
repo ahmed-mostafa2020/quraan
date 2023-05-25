@@ -19,6 +19,7 @@ export default function NavBar() {
             <Link href='/' className="mr-2 p-1">الرئيسية </Link>
             <Link href='/login' className="mr-2 p-1">Login </Link>
             <Link href='/register' className="p-1">Register </Link>
+            <Link href='/result' className="p-1">result </Link>
           </div>
 
           <Link href='https://chat.whatsapp.com/Hokw6zJMbIF9Z43SUYOZo6' className="whats" target="blank"><IoLogoWhatsapp /></Link>
