@@ -19,7 +19,6 @@ export default function Result() {
     router.push(page);
   }
   const [dataFetched, setDataFetched] = useState('');
-  const [show, setShow] = useState(false);
 
   const sendReq = async () => {
     const token = "Bearer " + localStorage.getItem('token');
@@ -57,58 +56,63 @@ export default function Result() {
 
                 <FormControl className='radio-group'  >
                   <FormLabel id="َquestion1" >{dataFetched.data?.[0].title}</FormLabel>
-                    {dataFetched.data?.[0].degree ? <p className="right-msg"><IoCheckmarkDone className='sign'/> right answer </p> : <p className="wrong-msg"> <RxCross2 className='sign' /> wrong answer </p>}
+                  {dataFetched.data?.[0].degree ? <p className="right-msg"><IoCheckmarkDone className='sign' /> right answer </p> : <p className="wrong-msg"> <RxCross2 className='sign' /> wrong answer </p>}
                   <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     name="radio-buttons-group"
                   >
                     {dataFetched.data?.[0].answers.map((answer, index) => {
-                      if(answer == dataFetched.data?.[0].his_answer){
-                        return(
-                        <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
-                        checked />
-                        )}
-                      else if(answer == dataFetched.data?.[0].right_answer){
-
-                        return(
+                      if (answer == dataFetched.data?.[0].his_answer) {
+                        return (
                           <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
-                          checked className="right_answer" />
-                        )}
+                            checked className="selected" />
+                        )
+                      }
+                      else if (answer == dataFetched.data?.[0].right_answer) {
+                        return (
+                          <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
+                            checked className="right_answer" />
+                        )
+                      }
 
-                        else{
-                          return <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}/>
-                        }
+                      else {
+                        return <FormControlLabel value={answer} control={<Radio />} label={answer} key={index} disabled />
+                      }
 
                     })}
                   </RadioGroup>
                 </FormControl>
-                <FormControl className='radio-group'  >
-                  <FormLabel id="َquestion1" >{dataFetched.data?.[1].title}</FormLabel>
-                    {dataFetched.data?.[1].degree ? <p className="right-msg"><IoCheckmarkDone className='sign'/> right choice </p> : <p className="wrong-msg"> <RxCross2 className='sign' /> wrong choice </p>}
+                
+                {/* <FormControl className='radio-group'  >
+                  <FormLabel id="َquestion2" >{dataFetched.data?.[1].title}</FormLabel>
+                  {dataFetched.data?.[1].degree ? <p className="right-msg"><IoCheckmarkDone className='sign' /> right answer </p> : <p className="wrong-msg"> <RxCross2 className='sign' /> wrong answer </p>}
                   <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     name="radio-buttons-group"
                   >
                     {dataFetched.data?.[1].answers.map((answer, index) => {
-                      if(answer == dataFetched.data?.[1].his_answer){
-                        return(
-                        <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
-                        checked />
-                        )}
-                      else if(answer == dataFetched.data?.[1].right_answer){
-
-                        return(
+                      if (answer == dataFetched.data?.[1].his_answer) {
+                        return (
                           <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
-                          checked className="right_answer" />
-                        )}
+                            checked />
+                        )
+                      }
+                      else if (answer == dataFetched.data?.[1].right_answer) {
+                        return (
+                          <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}
+                            checked className="right_answer" />
+                        )
+                      }
 
-                        else{
-                          return <FormControlLabel value={answer} control={<Radio />} label={answer} key={index}/>
-                        }
+                      else {
+                        return <FormControlLabel value={answer} control={<Radio />} label={answer} key={index} disabled />
+                      }
 
                     })}
                   </RadioGroup>
-                </FormControl>
+                </FormControl> */}
+
+
 
               </div>
             </div>

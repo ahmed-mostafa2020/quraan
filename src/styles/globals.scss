@@ -154,11 +154,18 @@ button {
             color: $main-color;
           }
           .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
-            color: gray;
+            color: $sec-color;
           }
+          .selected{
+            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked*-دجحخهعغفقثصض  ض {
+              color: red;
+            }
+          }
+
 
         }
       }
+
       .btn {
         background-color: $main-color !important;
         color: #fff;
@@ -185,6 +192,7 @@ button {
     }
   }
 }
+
 
 /****************************Login style *******************************/
 .login,
