@@ -264,30 +264,19 @@ button {
       //     margin-top: 25px;
       //   }
       // }
+      
       .input-div {
-        input{
           //field input
           width: 100% !important;
           &:not(:first-of-type) {
             margin-top: 25px;
           }
         }
-      } 
-
-      // .css-1nrlq1o-MuiFormControl-root,
-      // .password-class input{
-      //   //password input
-      //   width: 100% !important;
-      //   margin-top: 25px;
-      // }
       
-      // .css-1nrlq1o-MuiFormControl-root,
-      .password-class  {
-        input{
-          //password input
-          width: 100% !important;
-          margin-top: 25px;
-        }
+      .password-class input{
+        //password input
+        width: 100% !important;
+        margin-top: 25px;
       }
 
       //label
