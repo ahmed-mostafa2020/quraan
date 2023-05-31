@@ -268,9 +268,7 @@ button {
       .input-div {
           //field input
           width: 100% !important;
-          &:not(:first-of-type) {
             margin-top: 25px;
-          }
         }
       
       .password-class input{
