@@ -75,7 +75,8 @@ button {
   }
 }
 //form
-.main, .result {
+.main,
+.result {
   .container {
     display: flex;
     justify-content: center;
@@ -106,7 +107,6 @@ button {
           input {
             cursor: pointer;
           }
-          
         }
       }
 
@@ -116,20 +116,21 @@ button {
         align-items: center;
         flex-direction: column;
         flex-wrap: wrap;
-        .right-msg, .wrong-msg{
+        .right-msg,
+        .wrong-msg {
           display: block;
           font-size: 15px;
           font-weight: 400;
           padding: 5px 8px;
-          .sign{
+          .sign {
             display: inline-block;
           }
         }
-        .right-msg{
+        .right-msg {
           background-color: green;
           color: #fff;
         }
-        .wrong-msg{
+        .wrong-msg {
           background-color: red;
           color: #fff;
         }
@@ -142,8 +143,8 @@ button {
             font-weight: 600;
             color: black;
           }
-          label.right_answer{
-            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
+          label.right_answer {
+            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
               color: green;
             }
           }
@@ -156,13 +157,12 @@ button {
           .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
             color: $sec-color;
           }
-          .selected{
-            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked*-دجحخهعغفقثصض  ض {
+          .selected {
+            .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked*-دجحخهعغفقثصض
+              ض {
               color: red;
             }
           }
-
-
         }
       }
 
@@ -192,7 +192,6 @@ button {
     }
   }
 }
-
 
 /****************************Login style *******************************/
 .login,
@@ -239,32 +238,56 @@ button {
         border-left: none;
       }
 
-      .css-r47a1p-MuiFormControl-root{
+      .css-r47a1p-MuiFormControl-root {
         width: 100%;
         margin: 0 !important;
       }
-      .success-msg, .error-msg{
+      .success-msg,
+      .error-msg {
         text-align: center;
         display: block;
         margin: -20px 0 20px 0;
         letter-spacing: 1.25px;
       }
-      .success-msg{
+      .success-msg {
         color: green;
       }
-      .error-msg{
+      .error-msg {
         color: red;
       }
       //inputs
-      .css-1u3bzj6-MuiFormControl-root-MuiTextField-root,.input-class{ //field input
-        width: 100% !important;
-        &:not(:first-of-type){
+      // .css-1u3bzj6-MuiFormControl-root-MuiTextField-root,
+      // .input-div input{
+      //   //field input
+      //   width: 100% !important;
+      //   &:not(:first-of-type) {
+      //     margin-top: 25px;
+      //   }
+      // }
+      .input-div {
+        input{
+          //field input
+          width: 100% !important;
+          &:not(:first-of-type) {
+            margin-top: 25px;
+          }
+        }
+      } 
+
+      // .css-1nrlq1o-MuiFormControl-root,
+      // .password-class input{
+      //   //password input
+      //   width: 100% !important;
+      //   margin-top: 25px;
+      // }
+      
+      // .css-1nrlq1o-MuiFormControl-root,
+      .password-class  {
+        input{
+          //password input
+          width: 100% !important;
           margin-top: 25px;
         }
-      }
-      .css-1nrlq1o-MuiFormControl-root ,.password-class{ //password input
-        width: 100% !important;
-        margin-top: 25px;
       }
 
       //label
@@ -273,7 +296,7 @@ button {
       .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
         color: $main-color;
       }
-      label.error{
+      label.error {
         display: inline-block;
         font-size: 13px;
         padding-left: 10px;

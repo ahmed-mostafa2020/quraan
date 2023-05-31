@@ -10,7 +10,7 @@ export default function Field({ value, setValue, label, type }) {
         label={label}
         variant="outlined"
         value={value}
-        className="input-class"
+        className="input-div"
         onChange={(e) => {
           setValue(e.target.value);
         }}
