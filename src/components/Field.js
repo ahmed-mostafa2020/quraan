@@ -1,8 +1,7 @@
 import { TextField } from "@mui/material";
 
-export default function Field({ value, setValue, label, type}) {
+export default function Field({ value, setValue, label, type }) {
   return (
-
     <>
       <TextField
         required
@@ -11,6 +10,7 @@ export default function Field({ value, setValue, label, type}) {
         label={label}
         variant="outlined"
         value={value}
+        className="input-class"
         onChange={(e) => {
           setValue(e.target.value);
         }}

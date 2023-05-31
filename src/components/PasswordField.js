@@ -20,6 +20,7 @@ export default function PasswordField({ value, setValue }) {
         }}
         id="outlined-adornment-password"
         type={showPassword ? 'text' : 'password'}
+        className="password-class"
 
         endAdornment={
           <InputAdornment position="end"

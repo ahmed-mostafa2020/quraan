@@ -256,13 +256,13 @@ button {
         color: red;
       }
       //inputs
-      .css-1u3bzj6-MuiFormControl-root-MuiTextField-root{ //field input
+      .css-1u3bzj6-MuiFormControl-root-MuiTextField-root,.input-class{ //field input
         width: 100% !important;
         &:not(:first-of-type){
           margin-top: 25px;
         }
       }
-      .css-1nrlq1o-MuiFormControl-root { //password input
+      .css-1nrlq1o-MuiFormControl-root ,.password-class{ //password input
         width: 100% !important;
         margin-top: 25px;
       }
