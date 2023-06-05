@@ -10,17 +10,17 @@ export default function PasswordField({ value, setValue }) {
     event.preventDefault();
   };
   return (
-    <FormControl required>
+    <FormControl required className="password-div">
       <InputLabel htmlFor="outlined-adornment-password" >كلمة المرور</InputLabel>
-      <OutlinedInput
 
+      <OutlinedInput
+        className="test"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
         }}
         id="outlined-adornment-password"
         type={showPassword ? 'text' : 'password'}
-        className="password-div"
 
         endAdornment={
           <InputAdornment position="end"
