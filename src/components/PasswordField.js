@@ -14,7 +14,6 @@ export default function PasswordField({ value, setValue }) {
       <InputLabel htmlFor="outlined-adornment-password" >كلمة المرور</InputLabel>
 
       <OutlinedInput
-        className="test"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
