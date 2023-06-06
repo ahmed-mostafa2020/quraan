@@ -80,6 +80,7 @@ button {
 .result {
   .container {
     margin-top: 50px;
+    padding: 0 10px;
     @media (max-width: $small) {
       margin-top: 30px;
     }
