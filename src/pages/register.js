@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import image from '../../public/photo10.svg';
 import Link from 'next/link';
 import RegisterForm from "../components/RegisterForm";
 import { useRouter } from "next/router";
+import Helmet from "@/helpers/Helmet";
+
 
 export default function Register() {
   //redirect
@@ -27,12 +28,8 @@ export default function Register() {
 
   return (
     <>
-      <Head>
-        <title>جروب القرءان الكريم | إنشاء حساب</title>
-        <meta name="description" content="جروب القراءن الكريم" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/blob14.svg" />
-      </Head>
+      <Helmet title={'إنشاء حساب'} ></Helmet>
+
 
       <section className="register">
         <div className="container py-3">

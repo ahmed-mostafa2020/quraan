@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import RadioButtonsGroup from '../components/RadioButtonsGroup';
 import QuesSubmitButton from '../components/QuesSubmitButton';
 import { Box } from "@mui/material";
@@ -6,6 +5,9 @@ import { API_URLS } from "../util/API_URLS";
 import { GetApi } from "../components/GetApi";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Helmet from "@/helpers/Helmet";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 export default function Home() {
   // redirect
@@ -35,11 +37,11 @@ export default function Home() {
 
     const data = await GetApi(API_URLS.HOME, API_URLS.HEADERGET);
     setDataFetched(data);
-    if(data.code === 401){
+    if (data.code === 401) {
       // condition base redirecting
       redirect("/result");
     }
-    if(data.code === 301){
+    if (data.code === 301) {
       localStorage.removeItem('token');
       redirect("/login");
     }
@@ -48,25 +50,25 @@ export default function Home() {
     sendReq();
   }, []);
 
-  const sendAnswer = async() => {
+  const sendAnswer = async () => {
     setMessage('');
 
     const token = "Bearer " + localStorage.getItem('token');
     API_URLS.HEADERPOST.headers.Authorization = token;
-    API_URLS.HEADERPOST.body = JSON.stringify(answers) ;
+    API_URLS.HEADERPOST.body = JSON.stringify(answers);
     const data = await GetApi(API_URLS.ANSWER, API_URLS.HEADERPOST);
 
-    if(data.code === 401 || data.code === 200){
+    if (data.code === 401 || data.code === 200) {
       // condition base redirecting
       redirect("/result");
     }
 
-    if(data.code === 400){
+    if (data.code === 400) {
       setShow(true);
       setMessage(data.message);
     }
-    
-    if(data.code == 301){
+
+    if (data.code == 301) {
       localStorage.removeItem("token");
       redirect('/login');
     }
@@ -82,17 +84,14 @@ export default function Home() {
   return (
 
     <>
-      <Head>
-        <title>جروب القرءان الكريم</title>
-        <meta name="description" content="جروب القرءان الكريم" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/blob14.svg" />
-      </Head>
+      <Helmet title={'الأسئلة'} ></Helmet>
       <main className='main'>
         <div className='container'>
-        {setShow && (<label className="error">{message}</label>)}
+          <div className='validation-error'>
+            <h3> {setShow && (<label className="error">{message }</label> ) }</h3>
+          </div>
 
-          <Box
+          {dataFetched ? <Box
             component="form"
             noValidate
             autoComplete="off"
@@ -113,7 +112,9 @@ export default function Home() {
             </div>
             <button type='submit' className='btn'>ارسل </button>
             {/* <QuesSubmitButton /> */}
-          </Box>
+          </Box> : <Box sx={{ display: 'flex' , marginTop: '100px', justifyContent: 'center'}}>
+            <CircularProgress  sx={{color : '#004243 '}}/>
+          </Box>}
 
         </div>
       </main>

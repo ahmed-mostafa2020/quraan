@@ -1,4 +1,3 @@
-import Head from "next/head";
 import * as React from 'react';
 import Image from "next/image";
 import image from '../../public/photo10.svg';
@@ -6,6 +5,7 @@ import Link from 'next/link';
 import LogForm from "../components/LogForm";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Helmet from "@/helpers/Helmet";
 
 
 export default function Login() {
@@ -24,12 +24,7 @@ export default function Login() {
 
   return (
     <>
-      <Head>
-        <title>جروب القرءان الكريم | تسجيل الدخول</title>
-        <meta name="description" content="جروب القراءن الكريم" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/blob14.svg" />
-      </Head>
+      <Helmet title={'تسجيل الدخول'} ></Helmet>
 
       <section className="login">
         <div className="container py-3">

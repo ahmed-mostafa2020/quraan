@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { API_URLS } from "../util/API_URLS";
 import { useEffect, useState } from "react";
 import { GetApi } from "../components/GetApi";
@@ -10,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { IoCheckmarkDone } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
+import Helmet from "@/helpers/Helmet";
 
 
 export default function Result() {
@@ -41,12 +41,7 @@ export default function Result() {
 
   return (
     <>
-      <Head>
-        <title>جروب القرءان الكريم|النتيجة</title>
-        <meta name="description" content="جروب القراءن الكريم" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/blob14.svg" />
-      </Head>
+      <Helmet title={'النتيجة'} ></Helmet>
 
       <div className="result">
         <div className="container">

@@ -79,13 +79,23 @@ button {
 .main,
 .result {
   .container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    margin-top: 50px;
+    @media (max-width: $small) {
+      margin-top: 30px;
+    }
+    .validation-error {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      height: fit-content;
+      h3 {
+        color: red;
+      }
+    }
     form {
       width: 100%;
       text-align: center;
-      margin-top: 50px;
+      margin-top: 20px;
       div.box {
         max-width: 60%;
         margin: 0 auto 50px auto !important;
@@ -139,6 +149,22 @@ button {
           direction: rtl;
           margin: 0px 0 30px 0;
           display: block;
+          width: 100%;
+          .radio-label {
+            display: inline-block;
+            width: 100%;
+            text-align: right;
+            margin-right: 45px;
+          }
+          .radio-options {
+            display: flex;
+            justify-content: flex-start;
+            margin-right: 30px;
+          }
+          .option {
+            display: flex;
+            align-self: flex-start;
+          }
           label {
             font-size: 22px;
             font-weight: 600;
@@ -152,11 +178,12 @@ button {
           .css-ahj2mt-MuiTypography-root {
             font-size: 19px;
           }
-          .css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+          .radio-div {
             color: $main-color;
           }
-          .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
-            color: $sec-color;
+
+          .radio-div input:checked + span {
+            color: $sec-color !important;
           }
           .selected {
             .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
