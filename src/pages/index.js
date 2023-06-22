@@ -27,6 +27,7 @@ export default function Home() {
 
   const [status, setStatus] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [done, setDone] = useState(false);
 
   let answers = {
     reading: reading,
@@ -47,6 +48,7 @@ export default function Home() {
     const data = await GetApi(API_URLS.HOME, API_URLS.HEADERGET);
     setDataFetched(data);
     if (data.code === 401) {
+      setDone(true);
       // condition base redirecting
       // redirect("/result");
     }
@@ -110,26 +112,28 @@ export default function Home() {
               method="POST"
               id="form1"
             >
-              <div className="box input-group mb-3">
-                <div className="input-group-text">
+              {done ? null : (
+                <div className="box input-group mb-3">
+                  <div className="input-group-text">
+                    <input
+                      className="form-check-input mt-0"
+                      type="checkbox"
+                      value=""
+                      aria-label="Checkbox for following text input"
+                      onChange={() => {
+                        setReading(!reading);
+                      }}
+                    />
+                  </div>
                   <input
-                    className="form-check-input mt-0"
-                    type="checkbox"
-                    value=""
-                    aria-label="Checkbox for following text input"
-                    onChange={() => {
-                      setReading(!reading);
-                    }}
+                    type="text"
+                    disabled
+                    value="أتممت بفضل الله ورد اليوم "
+                    className="form-control"
+                    aria-label="Text input with checkbox"
                   />
                 </div>
-                <input
-                  type="text"
-                  disabled
-                  value="أتممت بفضل الله ورد اليوم "
-                  className="form-control"
-                  aria-label="Text input with checkbox"
-                />
-              </div>
+              )}
 
               <div className="wrap">
                 <RadioButtonsGroup
@@ -140,12 +144,21 @@ export default function Home() {
                   setQuestion2={setQuestion2}
                 />
               </div>
-              <button type="submit" className="btn" disabled={disabled}>
-                ارسل
-              </button>
+              {done ? null : (
+                <button type="submit" className="btn" disabled={disabled}>
+                  ارسل
+                </button>
+              )}
+
               {status ? (
                 <Alert variant="success" className="mt-3 text-center">
                   {"تم إرسال الإجابات بنجاح"}
+                </Alert>
+              ) : null}
+
+              {done ? (
+                <Alert variant="success" className="mt-3 text-center">
+                  {"! لقد أجبت بالفعل اليوم"}
                 </Alert>
               ) : null}
             </Box>
