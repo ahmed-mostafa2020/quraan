@@ -1,30 +1,28 @@
-import * as React from 'react';
+import * as React from "react";
 import Image from "next/image";
-import image from '../../public/photo10.svg';
-import Link from 'next/link';
+import image from "../../public/photo10.svg";
+import Link from "next/link";
 import LogForm from "../components/LogForm";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Helmet from "@/helpers/Helmet";
 
-
 export default function Login() {
-    //redirect
-    let router = useRouter();
-    function redirect(page) {
-      router.push(page);
-    }
+  //redirect
+  let router = useRouter();
+  function redirect(page) {
+    router.push(page);
+  }
   useEffect(() => {
-    let token = localStorage.getItem('token');
-    if(token){
-      redirect('/');
+    let token = localStorage.getItem("token");
+    if (token) {
+      redirect("/");
     }
-  },[]);
-
+  }, []);
 
   return (
     <>
-      <Helmet title={'تسجيل الدخول'} ></Helmet>
+      <Helmet title={"تسجيل الدخول"}></Helmet>
 
       <section className="login">
         <div className="container py-3">
@@ -39,11 +37,15 @@ export default function Login() {
               </div>
 
               <LogForm />
-              
+
               <div className="footer">
-                <p className="member text-center"> <Link data-toggle="tab" href="/register">إنشاء حساب</Link>  ليس لديك حساب؟</p>
+                <p className="member text-center">
+                  <Link data-toggle="tab" href="/register">
+                    إنشاء حساب
+                  </Link>
+                  ليس لديك حساب؟
+                </p>
               </div>
-            
             </div>
           </div>
         </div>

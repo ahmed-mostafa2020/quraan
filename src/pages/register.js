@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import image from '../../public/photo10.svg';
-import Link from 'next/link';
+import image from "../../public/photo10.svg";
+import Link from "next/link";
 import RegisterForm from "../components/RegisterForm";
 import { useRouter } from "next/router";
 import Helmet from "@/helpers/Helmet";
-
 
 export default function Register() {
   //redirect
@@ -14,22 +13,20 @@ export default function Register() {
     router.push(page);
   }
   useEffect(() => {
-    let token = localStorage.getItem('token');
+    let token = localStorage.getItem("token");
     if (token) {
-      redirect('/');
+      redirect("/");
     }
   }, []);
 
   //controlled input
-  const [nameValue, setNameValue] = useState('');
-  const [mobileValue, setMobileValue] = useState('');
-  const [passValue, setPassValue] = useState('');
-
+  const [nameValue, setNameValue] = useState("");
+  const [mobileValue, setMobileValue] = useState("");
+  const [passValue, setPassValue] = useState("");
 
   return (
     <>
-      <Helmet title={'إنشاء حساب'} ></Helmet>
-
+      <Helmet title={"إنشاء حساب"}></Helmet>
 
       <section className="register">
         <div className="container py-3">
@@ -46,13 +43,17 @@ export default function Register() {
               <RegisterForm />
 
               <div className="footer">
-                <p className="member text-center"> <Link data-toggle="tab" href="/login">تسجيل دخول </Link>  لديك حساب بالفعل؟</p>
+                <p className="member text-center">
+                  <Link data-toggle="tab" href="/login">
+                    تسجيل دخول
+                  </Link>
+                  لديك حساب بالفعل؟
+                </p>
               </div>
-
             </div>
           </div>
         </div>
-      </section >
+      </section>
     </>
   );
 }

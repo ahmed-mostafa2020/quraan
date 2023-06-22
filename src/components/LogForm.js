@@ -6,6 +6,7 @@ import FormSubmitButton from "./FormSubmitButton";
 import { API_URLS } from "../util/API_URLS";
 import { GetApi } from "./GetApi";
 import { useRouter } from "next/router";
+import { Alert } from "react-bootstrap";
 
 export default function LogForm() {
   let router = useRouter();
@@ -13,6 +14,7 @@ export default function LogForm() {
   function redirect(page) {
     router.push(page);
   }
+  const [status, setStatus] = useState(false);
 
   const [passValue, setPassValue] = useState("");
   const [mobileValue, setMobileValue] = useState("");
@@ -47,8 +49,10 @@ export default function LogForm() {
     if (data.code == 200) {
       localStorage.setItem("token", data.data.token);
       setSuccessMsg(true);
-
-      redirect('/');
+      setStatus(true);
+      setTimeout(() => {
+        redirect("/");
+      }, 1500);
     }
 
     if (data.code != 200) {
@@ -84,12 +88,17 @@ export default function LogForm() {
           setValue={setMobileValue}
           label={"رقم المحمول"}
         />
-        {mobileError && (<label className="error">{mobileError}</label>)}
+        {mobileError && <label className="error">{mobileError}</label>}
 
         <PasswordField value={passValue} setValue={setPassValue} />
-        {passwordError && (<label className="error">{passwordError}</label>)}
+        {passwordError && <label className="error">{passwordError}</label>}
 
         <FormSubmitButton>تسجيل الدخول</FormSubmitButton>
+        {status ? (
+          <Alert variant="success" className="mt-3 text-center">
+            {"تم تسجيل الدخول بنجاح"}
+          </Alert>
+        ) : null}
       </Box>
     </>
   );

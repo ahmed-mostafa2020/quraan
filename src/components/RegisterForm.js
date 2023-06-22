@@ -6,6 +6,7 @@ import FormSubmitButton from "./FormSubmitButton";
 import { API_URLS } from "../util/API_URLS";
 import { GetApi } from "./GetApi";
 import { useRouter } from "next/router";
+import { Alert } from "react-bootstrap";
 
 export default function RegisterForm() {
   let router = useRouter();
@@ -13,6 +14,7 @@ export default function RegisterForm() {
   function redirect(page) {
     router.push(page);
   }
+  const [status, setStatus] = useState(false);
 
   // inputs values
   const [nameValue, setNameValue] = useState("");
@@ -42,7 +44,7 @@ export default function RegisterForm() {
     setMobileError("");
     setPasswordError("");
     setMsg("");
-    setSuccessMsg (false);
+    setSuccessMsg(false);
     setErrorMsg(false);
     const data = await GetApi(API_URLS.REGISTER, API_URLS.HEADERPOST);
     const message = data.message;
@@ -50,8 +52,10 @@ export default function RegisterForm() {
 
     if (data.code == 200) {
       setSuccessMsg(true);
-
-      redirect('/login');
+      setStatus(true);
+      setTimeout(() => {
+        redirect("/login");
+      }, 1500);
     }
     if (data.code != 200) {
       setErrorMsg(true);
@@ -91,12 +95,17 @@ export default function RegisterForm() {
           setValue={setMobileValue}
           label={"رقم المحمول"}
         />
-        {mobileError && (<label className="error">{mobileError}</label>)}
+        {mobileError && <label className="error">{mobileError}</label>}
 
         <PasswordField value={passValue} setValue={setPassValue} />
-        {passwordError && (<label className="error">{passwordError}</label>)}
+        {passwordError && <label className="error">{passwordError}</label>}
 
         <FormSubmitButton>إنشاء حساب</FormSubmitButton>
+        {status ? (
+          <Alert variant="success" className="mt-3 text-center">
+            {"تم إنشاء الحساب بنجاح"}
+          </Alert>
+        ) : null}
       </Box>
     </>
   );

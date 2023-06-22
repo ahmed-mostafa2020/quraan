@@ -75,14 +75,24 @@ button {
   }
 }
 
+.under-developing {
+  background-color: #004243;
+  padding: 5px 0;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+}
+
 // Form
 .main,
 .result {
   .container {
     margin-top: 50px;
     padding: 0 10px;
+    width: 50%;
     @media (max-width: $small) {
       margin-top: 30px;
+      width: 100%;
     }
     .validation-error {
       display: flex;
@@ -98,7 +108,7 @@ button {
       text-align: center;
       margin-top: 20px;
       div.box {
-        max-width: 60%;
+        // max-width: 60%;
         margin: 0 auto 50px auto !important;
         @media (max-width: $small) {
           max-width: 80%;
@@ -201,23 +211,12 @@ button {
         font-weight: bold;
         padding: 5px 20px 10px 20px;
         font-size: 20px;
+        margin-bottom: 20px;
         letter-spacing: 0.5px;
         &:hover {
           color: $sec-color;
         }
       }
-
-      // Snake bar
-      // .go1453831412 {
-      //   @media (max-width: $small) {
-      //     bottom: 80px;
-      //   }
-      // }
-      // .go167266335 {
-      //   justify-content: center;
-      //   background-color: $sec-color;
-      //   font-size: 18px;
-      // }
     }
   }
 }
@@ -277,7 +276,6 @@ button {
         text-align: center;
         display: block;
         margin: -20px 0 20px 0;
-        letter-spacing: 1.25px;
       }
       .success-msg {
         color: green;
@@ -328,10 +326,11 @@ button {
       font-size: 13px;
       padding-left: 10px;
       color: red;
+      text-align: center;
       transition: all 0.2s ease-in-out;
-      &:not(:last-of-type) {
-        margin-bottom: 20px;
-      }
+      // &:not(:last-of-type) {
+      //   margin-bottom: 20px;
+      // }
     }
 
     .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus {

@@ -1,9 +1,12 @@
-import NavBar from './NavBar';
-export default function Layout({children}) {
+import NavBar from "./NavBar";
+import UnderDeveloping from "./UnderDeveloping";
+export default function Layout({ children }) {
   return (
     <>
-    <NavBar />
-    {children}
+      <UnderDeveloping />
+
+      <NavBar />
+      {children}
     </>
   );
 }
