@@ -1,5 +1,4 @@
 import RadioButtonsGroup from "../components/RadioButtonsGroup";
-import QuesSubmitButton from "../components/QuesSubmitButton";
 import { Box } from "@mui/material";
 import { API_URLS } from "../util/API_URLS";
 import { GetApi } from "../components/GetApi";
@@ -41,7 +40,11 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
 
+  console.log(show);
+
   const sendReq = async () => {
+    setShow(false);
+
     const token = "Bearer " + localStorage.getItem("token");
     API_URLS.HEADERGET.headers.Authorization = token;
 
@@ -71,6 +74,8 @@ export default function Home() {
 
     if (data.code === 401 || data.code === 200) {
       setStatus(true);
+      setShow(false);
+
       setTimeout(() => {
         setDisabled(true);
       }, 1500);
@@ -96,12 +101,26 @@ export default function Home() {
 
   return (
     <>
-      <Helmet title={"الأسئلة"}></Helmet>
+      <Helmet title={"الأسئلة"} />
       <main className="main">
         <div className="container">
-          <div className="validation-error">
-            <h3> {setShow && <label className="error">{message}</label>}</h3>
-          </div>
+          {show ? (
+            <Alert variant="danger" className="mt-3  text-center">
+              {message}
+            </Alert>
+          ) : null}
+
+          {status ? (
+            <Alert variant="success" className="mt-3 text-center">
+              {"تم إرسال الإجابات بنجاح"}
+            </Alert>
+          ) : null}
+
+          {done ? (
+            <Alert variant="success" className="mt-3  text-center">
+              {"! لقد أجبت بالفعل اليوم"}
+            </Alert>
+          ) : null}
 
           {dataFetched ? (
             <Box
@@ -149,18 +168,6 @@ export default function Home() {
                   ارسل
                 </button>
               )}
-
-              {status ? (
-                <Alert variant="success" className="mt-3 text-center">
-                  {"تم إرسال الإجابات بنجاح"}
-                </Alert>
-              ) : null}
-
-              {done ? (
-                <Alert variant="success" className="mt-3 text-center">
-                  {"! لقد أجبت بالفعل اليوم"}
-                </Alert>
-              ) : null}
             </Box>
           ) : (
             <Box

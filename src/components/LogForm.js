@@ -14,7 +14,6 @@ export default function LogForm() {
   function redirect(page) {
     router.push(page);
   }
-  const [status, setStatus] = useState(false);
 
   const [passValue, setPassValue] = useState("");
   const [mobileValue, setMobileValue] = useState("");
@@ -43,13 +42,12 @@ export default function LogForm() {
     setErrorMsg(false);
 
     const data = await GetApi(API_URLS.LOGIN, API_URLS.HEADERPOST);
-    // console.log(data);
+
     const message = data.message;
     setMsg(message);
     if (data.code == 200) {
       localStorage.setItem("token", data.data.token);
       setSuccessMsg(true);
-      setStatus(true);
       setTimeout(() => {
         redirect("/");
       }, 1500);
@@ -79,9 +77,19 @@ export default function LogForm() {
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
+        className="log-form"
       >
-        {successMsg ? <label className="success-msg">{msg}</label> : ""}
-        {errorMsg ? <label className="error-msg">{msg}</label> : ""}
+        {successMsg ? (
+          <Alert variant="success" className="mb-0 text-center">
+            {msg}
+          </Alert>
+        ) : null}
+
+        {errorMsg ? (
+          <Alert variant="danger" className="mb-0 text-center">
+            {msg}
+          </Alert>
+        ) : null}
         <Field
           type={"number"}
           value={mobileValue}
@@ -94,11 +102,6 @@ export default function LogForm() {
         {passwordError && <label className="error">{passwordError}</label>}
 
         <FormSubmitButton>تسجيل الدخول</FormSubmitButton>
-        {status ? (
-          <Alert variant="success" className="mt-3 text-center">
-            {"تم تسجيل الدخول بنجاح"}
-          </Alert>
-        ) : null}
       </Box>
     </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import image from "../../public/photo10.svg";
 import Link from "next/link";
@@ -19,19 +19,14 @@ export default function Register() {
     }
   }, []);
 
-  //controlled input
-  const [nameValue, setNameValue] = useState("");
-  const [mobileValue, setMobileValue] = useState("");
-  const [passValue, setPassValue] = useState("");
-
   return (
     <>
-      <Helmet title={"إنشاء حساب"}></Helmet>
+      <Helmet title={"إنشاء حساب"} />
 
       <section className="register">
         <div className="container py-3">
           <div className="wrap">
-            <div className="logoimg">
+            <div className="logo-img">
               <Image src={image} width={500} height={500} alt="logo" />
             </div>
 
@@ -47,7 +42,7 @@ export default function Register() {
                   <Link data-toggle="tab" href="/login">
                     تسجيل دخول
                   </Link>
-                  لديك حساب بالفعل؟
+                  &nbsp; لديك حساب بالفعل؟
                 </p>
               </div>
             </div>

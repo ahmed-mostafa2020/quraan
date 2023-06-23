@@ -22,12 +22,12 @@ export default function Login() {
 
   return (
     <>
-      <Helmet title={"تسجيل الدخول"}></Helmet>
+      <Helmet title={"تسجيل الدخول"} />
 
       <section className="login">
         <div className="container py-3">
           <div className="wrap">
-            <div className="logoimg">
+            <div className="logo-img">
               <Image src={image} width={400} height={400} alt="logo" />
             </div>
 
@@ -43,7 +43,7 @@ export default function Login() {
                   <Link data-toggle="tab" href="/register">
                     إنشاء حساب
                   </Link>
-                  ليس لديك حساب؟
+                  &nbsp;ليس لديك حساب؟
                 </p>
               </div>
             </div>

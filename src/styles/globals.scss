@@ -91,25 +91,16 @@ button {
     padding: 0 10px;
     width: 50%;
     @media (max-width: $small) {
-      margin-top: 30px;
+      margin-top: 0px;
       width: 100%;
     }
-    .validation-error {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      height: fit-content;
-      h3 {
-        color: red;
-      }
-    }
+
     form {
       width: 100%;
       text-align: center;
       margin-top: 20px;
       div.box {
-        // max-width: 60%;
-        margin: 0 auto 50px auto !important;
+        margin: 0 auto 25px auto !important;
         @media (max-width: $small) {
           max-width: 80%;
         }
@@ -118,6 +109,9 @@ button {
           background-color: #fff;
           padding: 10px 20px;
           font-size: 20px;
+          @media (max-width: $small) {
+            font-size: 18px;
+          }
         }
 
         .form-check-input:checked {
@@ -159,14 +153,20 @@ button {
         }
         .radio-group {
           direction: rtl;
-          margin: 0px 0 30px 0;
+          margin: 0px 0 20px 0;
           display: block;
           width: 100%;
           .radio-label {
             display: inline-block;
             width: 100%;
             text-align: right;
-            margin-right: 45px;
+            margin-right: 20px;
+            @media (max-width: $small) {
+              text-align: center;
+              margin-right: 0;
+              font-size: 20px;
+            }
+            // margin-right: 45px;
           }
           .radio-options {
             display: flex;
@@ -238,7 +238,7 @@ button {
     @media (max-width: $small) {
       max-width: 90%;
     }
-    .logoimg {
+    .logo-img {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -255,13 +255,17 @@ button {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 50px;
         h2 {
           font-weight: 600;
           font-size: 26px;
           color: $main-color;
         }
       }
+      .register-form,
+      .log-form {
+        margin-top: 35px;
+      }
+
       @media (max-width: $small) {
         padding-left: 0;
         border-left: none;
@@ -366,7 +370,7 @@ button {
       }
     }
   }
-  .logoimg {
+  .logo-img {
     flex: 1;
   }
 }

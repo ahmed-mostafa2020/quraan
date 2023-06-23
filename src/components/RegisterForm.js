@@ -14,7 +14,6 @@ export default function RegisterForm() {
   function redirect(page) {
     router.push(page);
   }
-  const [status, setStatus] = useState(false);
 
   // inputs values
   const [nameValue, setNameValue] = useState("");
@@ -52,7 +51,6 @@ export default function RegisterForm() {
 
     if (data.code == 200) {
       setSuccessMsg(true);
-      setStatus(true);
       setTimeout(() => {
         redirect("/login");
       }, 1500);
@@ -83,9 +81,19 @@ export default function RegisterForm() {
         autoComplete="off"
         onSubmit={handleSubmit}
         method="POST"
+        className="register-form"
       >
-        {successMsg && <label className="success-msg">{msg}</label>}
-        {errorMsg && <label className="error-msg">{msg}</label>}
+        {successMsg ? (
+          <Alert variant="success" className="mb-0 text-center">
+            {msg}
+          </Alert>
+        ) : null}
+
+        {errorMsg ? (
+          <Alert variant="danger" className="mb-0 text-center">
+            {msg}
+          </Alert>
+        ) : null}
         <Field value={nameValue} setValue={setNameValue} label={"الاسم"} />
         {nameError && <label className="error">{nameError}</label>}
 
@@ -101,11 +109,6 @@ export default function RegisterForm() {
         {passwordError && <label className="error">{passwordError}</label>}
 
         <FormSubmitButton>إنشاء حساب</FormSubmitButton>
-        {status ? (
-          <Alert variant="success" className="mt-3 text-center">
-            {"تم إنشاء الحساب بنجاح"}
-          </Alert>
-        ) : null}
       </Box>
     </>
   );
