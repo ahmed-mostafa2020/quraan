@@ -1,5 +1,3 @@
-//this app is installed with bootstrap ,materialUI and tailwind
-
 import Image from "next/image";
 import image from "../../public/photo10.svg";
 import Link from "next/link";
@@ -21,8 +19,7 @@ export default function NavBar() {
           </a>
 
           <h1 className="goods">
-            {" "}
-            لِّيَدَّبَّرُوا <span>آيَاتِهِ </span>{" "}
+            لِّيَدَّبَّرُوا <span>آيَاتِهِ </span>
           </h1>
           {/* <div>
             <Link href='/' className="mr-2 p-1">الرئيسية </Link>

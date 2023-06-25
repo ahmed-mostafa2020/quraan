@@ -40,8 +40,6 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
 
-  console.log(show);
-
   const sendReq = async () => {
     setShow(false);
 
@@ -52,8 +50,10 @@ export default function Home() {
     setDataFetched(data);
     if (data.code === 401) {
       setDone(true);
-      // condition base redirecting
-      // redirect("/result");
+
+      setTimeout(() => {
+        redirect("/result");
+      }, 1000);
     }
     if (data.code === 301) {
       localStorage.removeItem("token");
@@ -78,9 +78,8 @@ export default function Home() {
 
       setTimeout(() => {
         setDisabled(true);
-      }, 1500);
-      // condition base redirecting
-      // redirect("/result");
+      }, 1000);
+      redirect("/result");
     }
 
     if (data.code === 400) {
