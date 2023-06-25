@@ -78,7 +78,7 @@ export default function Home() {
 
       setTimeout(() => {
         setDisabled(true);
-      }, 1000);
+      }, 700);
       redirect("/result");
     }
 

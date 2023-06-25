@@ -35,7 +35,7 @@ export default function Result() {
       </Alert>;
       setTimeout(() => {
         redirect("/login");
-      }, 1000);
+      }, 700);
     }
 
     if (data.code === 401) {
@@ -44,7 +44,7 @@ export default function Result() {
       </Alert>;
       setTimeout(() => {
         redirect("/login");
-      }, 1000);
+      }, 700);
     }
   };
 
@@ -62,123 +62,135 @@ export default function Result() {
             <form>
               <div className="box">
                 <div className="wrap">
-                  <FormControl className="radio-group">
-                    <FormLabel id="َquestion1">
-                      {dataFetched.data[0].title}
-                    </FormLabel>
-                    {dataFetched.data[0].degree ? (
-                      <Alert variant="success" className="mb-3  text-center">
-                        {"إجابتك صحيحة"}
-                      </Alert>
-                    ) : (
-                      <Alert variant="danger" className="mb-3  text-center">
-                        {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[0].right_answer}`}
-                      </Alert>
-                    )}
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      name="radio-buttons-group"
-                    >
-                      {dataFetched.data[0].answers.map((answer, index) => {
-                        if (answer == dataFetched.data[0].his_answer) {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              checked
-                              className={
-                                dataFetched.data[0].degree
-                                  ? "right_answer"
-                                  : "wrong_answer "
-                              }
-                            />
-                          );
-                        } else if (answer == dataFetched.data[0].right_answer) {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              checked
-                              className="right_answer"
-                            />
-                          );
-                        } else {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              disabled
-                            />
-                          );
-                        }
-                      })}
-                    </RadioGroup>
-                  </FormControl>
+                  {dataFetched.data[0] ? (
+                    <FormControl className="radio-group">
+                      <FormLabel id="َquestion1">
+                        {dataFetched.data[0].title}
+                      </FormLabel>
+                      {dataFetched.data[0].degree ? (
+                        <Alert variant="success" className="mb-3  text-center">
+                          {"إجابتك صحيحة"}
+                        </Alert>
+                      ) : (
+                        <Alert variant="danger" className="mb-3  text-center">
+                          {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[0].right_answer}`}
+                        </Alert>
+                      )}
+                      <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        name="radio-buttons-group"
+                      >
+                        {dataFetched.data[0].answers.map((answer, index) => {
+                          if (answer == dataFetched.data[0].his_answer) {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                checked
+                                className={
+                                  dataFetched.data[0].degree
+                                    ? "right_answer"
+                                    : "wrong_answer "
+                                }
+                              />
+                            );
+                          } else if (
+                            answer == dataFetched.data[0].right_answer
+                          ) {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                checked
+                                className="right_answer"
+                              />
+                            );
+                          } else {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                disabled
+                              />
+                            );
+                          }
+                        })}
+                      </RadioGroup>
+                    </FormControl>
+                  ) : (
+                    ""
+                  )}
 
-                  <FormControl className="radio-group">
-                    <FormLabel id="َquestion2">
-                      {dataFetched.data[1].title}
-                    </FormLabel>
-                    {dataFetched.data[1].degree ? (
-                      <Alert variant="success" className="mb-3  text-center">
-                        {"إجابتك صحيحة"}
-                      </Alert>
-                    ) : (
-                      <Alert variant="danger" className="mb-3  text-center">
-                        {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[1].right_answer}`}
-                      </Alert>
-                    )}
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label2"
-                      name="radio-buttons-group2"
-                    >
-                      {dataFetched.data?.[1].answers.map((answer, index) => {
-                        if (answer == dataFetched.data[1].his_answer) {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              checked
-                              className={
-                                dataFetched.data[1].degree
-                                  ? "right_answer"
-                                  : "wrong_answer "
-                              }
-                            />
-                          );
-                        } else if (answer == dataFetched.data[1].right_answer) {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              checked
-                              className="right_answer"
-                            />
-                          );
-                        } else {
-                          return (
-                            <FormControlLabel
-                              value={answer}
-                              control={<Radio />}
-                              label={answer}
-                              key={index}
-                              disabled
-                            />
-                          );
-                        }
-                      })}
-                    </RadioGroup>
-                  </FormControl>
+                  {dataFetched.data[1] ? (
+                    <FormControl className="radio-group">
+                      <FormLabel id="َquestion2">
+                        {dataFetched.data[1].title}
+                      </FormLabel>
+                      {dataFetched.data[1].degree ? (
+                        <Alert variant="success" className="mb-3  text-center">
+                          {"إجابتك صحيحة"}
+                        </Alert>
+                      ) : (
+                        <Alert variant="danger" className="mb-3  text-center">
+                          {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[1].right_answer}`}
+                        </Alert>
+                      )}
+                      <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label2"
+                        name="radio-buttons-group2"
+                      >
+                        {dataFetched.data?.[1].answers.map((answer, index) => {
+                          if (answer == dataFetched.data[1].his_answer) {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                checked
+                                className={
+                                  dataFetched.data[1].degree
+                                    ? "right_answer"
+                                    : "wrong_answer "
+                                }
+                              />
+                            );
+                          } else if (
+                            answer == dataFetched.data[1].right_answer
+                          ) {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                checked
+                                className="right_answer"
+                              />
+                            );
+                          } else {
+                            return (
+                              <FormControlLabel
+                                value={answer}
+                                control={<Radio />}
+                                label={answer}
+                                key={index}
+                                disabled
+                              />
+                            );
+                          }
+                        })}
+                      </RadioGroup>
+                    </FormControl>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </form>
