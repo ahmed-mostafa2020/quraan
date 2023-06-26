@@ -8,15 +8,14 @@ export default function NavBar() {
     <>
       <nav className="navbar">
         <div className="container">
-          <a href="#">
-            <Image
-              className="logo"
-              src={image}
-              alt="logo"
-              width={100}
-              height={80}
-            />
-          </a>
+          <Image
+            loading="lazy"
+            className="logo"
+            src={image}
+            alt="logo"
+            width={100}
+            height={80}
+          />
 
           <h1 className="goods">
             لِّيَدَّبَّرُوا <span>آيَاتِهِ </span>

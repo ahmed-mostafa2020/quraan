@@ -28,7 +28,13 @@ export default function Login() {
         <div className="container py-3">
           <div className="wrap">
             <div className="logo-img">
-              <Image src={image} width={400} height={400} alt="logo" />
+              <Image
+                loading="lazy"
+                src={image}
+                width={400}
+                height={400}
+                alt="logo"
+              />
             </div>
 
             <div className="info">
