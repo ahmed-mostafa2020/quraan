@@ -52,6 +52,11 @@ export default function Result() {
     sendReq();
   }, []);
 
+  const handleClick = () => {
+    localStorage.removeItem("token");
+    redirect("/login");
+  };
+
   return (
     <>
       <Helmet title={"النتيجة"} />
@@ -192,6 +197,9 @@ export default function Result() {
                     ""
                   )}
                 </div>
+                <button className=" log-out" onClick={handleClick}>
+                  تسجيل خروج
+                </button>
               </div>
             </form>
           </div>
