@@ -53,8 +53,8 @@ export default function Result() {
   }, []);
 
   const handleClick = () => {
-    localStorage.removeItem("token");
     redirect("/login");
+    localStorage.removeItem("token");
   };
 
   return (
@@ -197,7 +197,7 @@ export default function Result() {
                     ""
                   )}
                 </div>
-                <button className=" log-out" onClick={handleClick}>
+                <button className="log-out" onClick={handleClick}>
                   تسجيل خروج
                 </button>
               </div>

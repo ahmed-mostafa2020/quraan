@@ -6,7 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 export default function NavBar() {
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" style={{ direction: "rtl" }}>
         <div className="container">
           <Image
             loading="lazy"
