@@ -10,6 +10,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Helmet from "@/helpers/Helmet";
 import { Alert } from "react-bootstrap";
 import { Box, CircularProgress } from "@mui/material";
+import Link from "next/link";
 
 export default function Result() {
   // redirect
@@ -51,11 +52,6 @@ export default function Result() {
   useEffect(() => {
     sendReq();
   }, []);
-
-  const handleClick = () => {
-    redirect("/login");
-    localStorage.removeItem("token");
-  };
 
   return (
     <>
@@ -197,9 +193,13 @@ export default function Result() {
                     ""
                   )}
                 </div>
-                <button className="log-out" onClick={handleClick}>
-                  تسجيل خروج
-                </button>
+
+                <Link
+                  href="https://chat.whatsapp.com/Hokw6zJMbIF9Z43SUYOZo6"
+                  className="done"
+                >
+                  تم
+                </Link>
               </div>
             </form>
           </div>

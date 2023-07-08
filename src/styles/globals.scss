@@ -201,8 +201,8 @@ button {
           color: $sec-color;
         }
       }
-      .log-out {
-        background-color: red;
+      .done {
+        background-color: $sec-color;
         color: #fff;
         font-weight: bold;
         border-radius: 5px;
@@ -213,8 +213,24 @@ button {
         border: none;
         transition: all 0.2 ease-in-out;
 
+        @keyframes glowing {
+          0% {
+            box-shadow: 0 0 -10px #f6df5d;
+          }
+          40% {
+            box-shadow: 0 0 20px #f6df5d;
+          }
+          60% {
+            box-shadow: 0 0 20px #f6df5d;
+          }
+          100% {
+            box-shadow: 0 0 -10px #f6df5d;
+          }
+        }
+        animation: glowing 3000ms infinite;
+
         &:hover {
-          background-color: rgb(154, 2, 2);
+          background-color: $main-color;
         }
         @media (max-width: $small) {
           font-size: 16px;

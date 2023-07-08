@@ -41,7 +41,7 @@ export default function Home() {
   const [show, setShow] = useState(false);
 
   const sendReq = async () => {
-    setShow(false);
+    setShow(null);
 
     const token = "Bearer " + localStorage.getItem("token");
     API_URLS.HEADERGET.headers.Authorization = token;
@@ -75,11 +75,11 @@ export default function Home() {
     if (data.code === 401 || data.code === 200) {
       setStatus(true);
       setShow(false);
+      setDisabled(true);
 
       setTimeout(() => {
-        setDisabled(true);
+        redirect("/result");
       }, 700);
-      redirect("/result");
     }
 
     if (data.code === 400) {
