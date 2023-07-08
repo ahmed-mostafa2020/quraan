@@ -69,11 +69,11 @@ export default function Result() {
                         {dataFetched.data[0].title}
                       </FormLabel>
                       {dataFetched.data[0].degree ? (
-                        <Alert variant="success" className="mb-3  text-center">
+                        <Alert variant="success" className="my-2  text-center">
                           {"إجابتك صحيحة"}
                         </Alert>
                       ) : (
-                        <Alert variant="danger" className="mb-3  text-center">
+                        <Alert variant="danger" className="my-2  text-center">
                           {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[0].right_answer}`}
                         </Alert>
                       )}
@@ -128,17 +128,19 @@ export default function Result() {
                     ""
                   )}
 
+                  <span className="splitting-line"></span>
+
                   {dataFetched.data[1] ? (
                     <FormControl className="radio-group">
                       <FormLabel id="َquestion2">
                         {dataFetched.data[1].title}
                       </FormLabel>
                       {dataFetched.data[1].degree ? (
-                        <Alert variant="success" className="mb-3  text-center">
+                        <Alert variant="success" className="my-2 text-center">
                           {"إجابتك صحيحة"}
                         </Alert>
                       ) : (
-                        <Alert variant="danger" className="mb-3  text-center">
+                        <Alert variant="danger" className="my-2  text-center">
                           {`إجابتك خاطئة والإجابة الصحيحة هى ${dataFetched.data[1].right_answer}`}
                         </Alert>
                       )}
@@ -198,7 +200,7 @@ export default function Result() {
                   href="https://chat.whatsapp.com/Hokw6zJMbIF9Z43SUYOZo6"
                   className="done"
                 >
-                  تم
+                  ارسل تـم على الجروب
                 </Link>
               </div>
             </form>
