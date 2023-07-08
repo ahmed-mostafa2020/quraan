@@ -49,7 +49,7 @@ export default function RadioButtonsGroup({
         ""
       )}
 
-      <span className="splitting-line"></span>
+      {data ? <span className="splitting-line"></span> : null}
 
       {data ? (
         <FormControl className="radio-group">
