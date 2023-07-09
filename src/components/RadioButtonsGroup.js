@@ -22,9 +22,11 @@ export default function RadioButtonsGroup({
     <>
       {data ? (
         <FormControl className="radio-group">
-          <FormLabel id="َquestion1" className="radio-label">
-            {form1?.title}
-          </FormLabel>
+          <div className="question-box">
+            <FormLabel id="َquestion1" className="radio-label">
+              {form1?.title}
+            </FormLabel>
+          </div>
 
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
@@ -53,9 +55,11 @@ export default function RadioButtonsGroup({
 
       {data ? (
         <FormControl className="radio-group">
-          <FormLabel id="َquestion2" className="radio-label">
-            {form2?.title}
-          </FormLabel>
+          <div className="question-box">
+            <FormLabel id="َquestion2" className="radio-label">
+              {form2?.title}
+            </FormLabel>
+          </div>
 
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"

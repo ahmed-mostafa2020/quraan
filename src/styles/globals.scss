@@ -98,7 +98,7 @@ button {
       div.box {
         margin: 0 auto 25px auto !important;
         @media (max-width: $small) {
-          max-width: 90%;
+          max-width: 92%;
         }
         input[type="text"] {
           text-align: right;
@@ -142,14 +142,20 @@ button {
           direction: rtl;
           display: block;
           width: 100%;
+          .question-box {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0;
+          }
           .radio-label {
             display: inline-block;
-            width: 100%;
+            width: auto;
             text-align: right;
-            margin-right: 20px;
+            margin-right: 10px;
+
             @media (max-width: $small) {
               text-align: right;
-              margin-right: 40px;
+              margin-right: 25px;
               font-size: 20px;
             }
           }
